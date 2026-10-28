@@ -57,7 +57,21 @@
 > ⚠️ 这个字符串**只显示这一次**，关掉页面就再也看不到了（只能重新生成）。
 > 全程不要发给任何人、不要提交到代码里。
 
-## 步骤 3 · 在本地执行推送命令
+## 步骤 3 · 把 README 里的占位用户名换掉（别漏）
+
+README 里的下载按钮目前写的是 `https://github.com/YOUR-NAME/localhub/releases/latest`，
+**不替换的话别人点进去是 404**。用下面的命令一键换（把 `<你的用户名>` 换成实际用户名）：
+
+```bash
+cd "D:/Academic-Research/计算机/文件管理软件开发/localhub"
+sed -i 's/YOUR-NAME/<你的用户名>/g' README.md
+```
+
+习惯用编辑器的也可以：用 VS Code 打开 `README.md`，`Ctrl + H` 查找 `YOUR-NAME` 全部替换为你的用户名。
+确认一下替换后变成了正确的地址，再做下一步。<br>
+同理检查 `docs/index.html` 里是否手动写死了用户名——它没有写死，是根据 Pages 域名自动推导的，这块不用管。
+
+## 步骤 4 · 在本地执行推送命令
 
 打开 **Git Bash**（或 PowerShell），进入项目目录后依次执行。
 **把两处 `<你的用户名>` 换成你的 GitHub 用户名**（比如 `zhangsan`）：
@@ -97,7 +111,7 @@ branch 'main' set up to track 'origin/main'.
 > git push -u origin main
 > ```
 
-## 步骤 4 · 验证
+## 步骤 5 · 验证
 
 刷新 GitHub 仓库页面，应该能看到：
 
@@ -108,7 +122,7 @@ branch 'main' set up to track 'origin/main'.
 **检查项**：确认列表里**没有** `node_modules` 和 `out`。
 如果出现了，说明 `.gitignore` 没生效，先别慌，告诉我来处理。
 
-## 步骤 5 · 补一个开源协议（可选但推荐）
+## 步骤 6 · 补一个开源协议（可选但推荐）
 
 在 GitHub 仓库首页点 **Add file → Create new file**，文件名填 `LICENSE`，
 右侧会自动出现 **Choose a license template** 按钮 → 选 **MIT License** → 填年份和你的名字 → Commit changes。
@@ -207,17 +221,17 @@ npm run dist:manual  # 一键出包：装配 + 生成 Setup.exe 和 Portable.exe
 
 产物在 `out/`，文件名会自动带上新版本号。
 
-### 4. 更新主页版本号（如果改了功能）
+### 4. 把新版本号写进对外文案
 
-`docs/index.html` 里有 **3 处** `v1.3.1` 字样和一个下载文件名，
-全部替换成新版本号（用编辑器的「全部替换」）：
+有三处 **v1.3.1** 需要改成 **v1.4.0**，用编辑器的「全部替换」最快：
 
-- `<span class="nav-ver">v1.3.1</span>`
-- `<h2>... ` 附近的暂无，主要是 nav 和 footer
-- `<code>LocalHub-1.3.1-Setup.exe</code>`
-- `<span>LocalHub v1.3.1</span>`
+| 文件 | 要改的东西 |
+| --- | --- |
+| `README.md` | 下载表格里的两行标题和文件名 `LocalHub-1.3.1-Setup.exe`、更新日志表新增一行 |
+| `docs/index.html` | `<span class="nav-ver">`、`<code>LocalHub-1.3.1-Setup.exe</code>`、页脚 `<span>LocalHub v1.3.1</span>` |
+| `docs/index.html` | 更新日志区：把 v1.4.0 插到最前面，`class="rel current"` 挪给它，去掉原来那条上的 `current` |
 
-如果需要新截图，把 `docs/assets/` 里对应的 PNG 换掉即可，文件名保持一致就不用改 HTML。
+如果需要新截图，替换 `docs/assets/` 里对应的 PNG（**文件名保持一致就不用改 HTML**）。
 
 ### 5. 提交并推送
 
