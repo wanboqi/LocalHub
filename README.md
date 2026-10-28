@@ -1,77 +1,55 @@
-# LocalHub · 本地资源和软件管理器
+# LocalHub · Local Resources and Software Manager
 
-把散落在硬盘各处的**软件、文件夹**和常用**网址**，收进一张清单里。要用的时候点一下就打开，或者一键跳到它所在的文件夹。
+Collect all the **software**, **folders** and frequently visited **websites** scattered across your hard drive into a single list. When you need them, simply click on them to open them, or press a button to jump directly to the corresponding folder.
 
-**完全本地运行，不需要注册账号，数据不出本机。**
+**Fully local operation, no need to register an account, and the data does not leave the local machine.**
 
-## 它长什么样
+## Use it
 
-软件栏目：
+**1. Open** — The first run is empty and the software will not secretly scan your hard drive.
 
-![LocalHub 主界面](docs/assets/app-main.png)
+**2. Bring the things in.** — Drag the exe file and folder directly into the window from the Resource Manager, or manually select by clicking on the " + File" and " + Folder" buttons on the toolbar.The same applies to common web addresses: Click on " + URL" to enter it, or simply drag the link icon on the left side of the browser address bar into the window.
 
-网址栏目：
+**3. Click and it's ready!** —
 
-![网址管理](docs/assets/app-urls.png)
-
-侧栏左下角点版本号，可以看到完整更新日志：
-
-![关于与更新日志](docs/assets/app-about.png)
-
-## 三分钟上手
-
-**1. 装好打开** — 第一次运行是空的，软件不会偷偷扫描你的硬盘。
-
-**2. 把东西拖进来** — 从资源管理器把 exe、文件夹直接拖进窗口，或者点工具栏的「＋ 文件」「＋ 文件夹」手动选择。
-常用网址同理：点「＋ 网址」填进去，或者把浏览器地址栏左边的链接图标直接拖进来。
-
-**3. 点一下就用** —
-
-| 按钮           | 作用                                         |
+| Button           | Function                                         |
 | -------------- | -------------------------------------------- |
-| **打开** | 直接用系统默认方式启动（网址则用浏览器打开） |
-| **定位** | 在资源管理器里选中并跳到它所在的位置         |
+| **Open** | Start the system in the default mode (and open the website using the browser) |
+| **Site** | Select it in the Resource Manager and navigate to its location.         |
 
-建议上来先建两个分类：一个「软件」，一个「网址」。图标会自动读取，不用管。
-
----
-
-## 为什么要用它
-
-装软件时总默认它会在桌面留个快捷方式，但你卸载过几次之后，桌面早就乱了；还有一批绿色软件躺在 `D:\某个很深的目录` 里，每次找都要重开资源管理器翻一遍。
-
-LocalHub 就是把这个「找」的动作省掉：东西还是在你原来的位置，只是这儿有了一份清单。
-
-具体到功能：
-
-- **分类 + 子栏目** —— 「软件」下面可以再分「AI 工具」「影音」，层级随便调整
-- **文件和网址放一起** —— 本地程序和常用网站不必分开两处记录
-- **真实图标** —— 显示的是程序自己的图标，不是系统给的白纸
-- **拖进来就行** —— 不用点「添加」再翻一遍目录
-- **随手加备注** —— 行内直接编辑，写「这是干嘛的」「密码是 xxx」
-- **路径失效会标红** —— 文件被挪走或删了，条目会变红并禁用按钮，不会点了才发现打不开
+We suggest creating two categories: one called "Software" and the other "Website". The icons will be automatically read, so you don't need to worry about it.
 
 ---
 
-## 常见问题
+## Why use it
 
-**数据存在哪里？**
-`C:\Users\<你的用户名>\AppData\Roaming\LocalHub\data.json`，图标缓存在同目录的 `icon-cache` 文件夹。
-**卸载软件不会删这个文件**，重装回来列表还在。想彻底清空，把整个 `LocalHub` 文件夹删掉即可。
+When installing software, it usually defaults to creating a shortcut on the desktop. But after uninstalling it several times, the desktop has become messy. There are also a bunch of green software lying in `D:\a very deep directory`, and every time you want to find them, you have to open the Resource Manager and search through all the contents.
 
-**会不会上传我的数据到服务器？**
-不会。软件没有任何同步逻辑，唯一联网的地方是抓取网址条目的图标——抓到后就存本地，不会重复请求。
+LocalHub eliminates the "search" process altogether: The items are still in their original place, but here we have a list instead.
+
+Function：
+
+- **Category + Subcategory** —— Under "Software", you can further subdivide it into "AI Tools" and "Audio/Video". The hierarchy can be adjusted as you wish.
+- **Put the files and the website together** —— Local programs and commonly used websites do not need to be recorded separately in two places.
+- **Real icon** —— What is displayed is the icon of the program itself, not the blank white screen given by the system.
+- **Just pull it in.** —— There's no need to click "Add" and then go through the table of contents again.
+- **Just add a note casually** —— Edit directly within the text, write "What's this for?" and "The password is xxx".
+- **Path failure will be marked in red.** —— The file has been moved or deleted. The entry will turn red and the button will be disabled. You won't be able to access it until you try to click it.
 
 ---
 
-## 更新日志
+## Q&A
 
-| 版本  | 日期       | 说明                                                           |
-| ----- | ---------- | -------------------------------------------------------------- |
-| 1.3.1 | 2026-10-28 | 修复任务栏图标显示为 Electron 默认图标的问题                   |
-| 1.3.0 | 2026-10-28 | 侧栏显示版本号，「关于」面板可查看完整更新日志，升级后自动提示 |
-| 1.2.0 | 2026-10-28 | 按钮四态反馈，失败时给出具体原因                               |
-| 1.1.0 | 2026-10-26 | 新增网址管理与图标抓取                                         |
-| 1.0.0 | 2026-10-23 | 首个版本                                                       |
+**Where is the data stored?**
+`C:\Users\<your username>\AppData\Roaming\LocalHub\data.json`, the icon cache is stored in the `icon-cache` folder in the same directory.
 
-每一条改动的详细展开，可以在软件里点侧栏左下角的版本号查看。
+**Uninstalling the software will not delete this file.**，The list of reinstalled items is still there. If you want to completely clear it, simply delete the entire "LocalHub" folder.
+
+**Will your data be uploaded to the server?**
+No. The software has no synchronization logic. The only place it connects to the internet is the icon for fetching website entries - once it is retrieved, it is saved locally and will not make duplicate requests.
+
+---
+
+## Update
+
+The detailed breakdown of each modification can be viewed by clicking on the version number at the bottom left of the sidebar in the software.
