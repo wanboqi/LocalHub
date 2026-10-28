@@ -1,0 +1,32 @@
+# 依赖
+node_modules/
+
+# 构建产物
+dist/
+dist-electron/
+out/
+.vite/
+
+# electron-builder 中间件
+.staging/
+out-stale/
+out-prev/
+
+# 日志
+*.log
+npm-debug.log*
+yarn-error.log*
+
+# 系统文件
+Thumbs.db
+Desktop.ini
+
+# 编辑器
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# 敏感信息
+.env
+.env.local
+*.pem
