@@ -1,0 +1,59 @@
+{
+  "name": "localhub",
+  "productName": "LocalHub",
+  "private": true,
+  "version": "1.3.1",
+  "description": "本地文件与软件管理器",
+  "main": "dist-electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc --noEmit && vite build",
+    "dist": "npm run build && electron-builder --win --x64",
+    "dist:manual": "npm run build && node tools/assemble.js && node tools/pack.js && node tools/clean.js",
+    "clean": "node tools/clean.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^5.0.0",
+    "electron": "^45.0.0",
+    "electron-builder": "^26.0.12",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.0",
+    "vite-plugin-electron": "^0.29.0"
+  },
+  "build": {
+    "appId": "com.localhub.app",
+    "productName": "LocalHub",
+    "directories": {
+      "output": "out"
+    },
+    "files": [
+      "dist/**",
+      "dist-electron/**",
+      "public/**"
+    ],
+    "win": {
+      "icon": "public/icon.ico",
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "artifactName": "${productName}-${version}-Setup.${ext}",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    },
+    "portable": {
+      "artifactName": "${productName}-${version}-Portable.${ext}"
+    },
+    "electronDist": "node_modules/electron/dist"
+  }
+}
